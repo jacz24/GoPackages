@@ -32,11 +32,12 @@ func run() {
 	createServerCallbacks()
 	mainchat := chat.CreateChatRoomType()
 	lobbyRoomType := lobby.CreateLobbyRoomType()
-	//lobbyRoom := lobby.
+	lobbyRoom := lobby.CreateLobbyRoom()
 
 	//chat := createChat()
 	log.Println(mainchat)
 	log.Println(lobbyRoomType)
+	log.Println(lobbyRoom)
 	//createPokerTable() // if button click
 	table.CreatePokerTableType()
 
