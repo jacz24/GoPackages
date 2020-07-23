@@ -52,7 +52,7 @@ func actionGenerateGuestUsername(actionData interface{}, client *actions.Client)
 	UID := strconv.Itoa(UIDStruct.Int())
 	guestUsername := "guest" + UID
 	log.Println("Generating Guest Username: ", guestUsername)
-	log.Println("total possible unique guest names left!", calculateTotalPossibleUIDS(UIDStruct))
+	log.Println("total possible unique guest names left!", CalculateTotalPossibleUIDS(UIDStruct))
 	//client.Respond(UID + actionData.(string) + "!", actions.NoError())
 	client.Respond(guestUsername, actions.NoError())
 }

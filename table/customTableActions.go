@@ -2,8 +2,8 @@ package table
 
 import (
 	"github.com/hewiefreeman/GopherGameServer/actions"
-	"log"
 	"github.com/jacz24/GoPackages/poker"
+	"log"
 )
 
 var roomUIDList map[int]bool
