@@ -9,8 +9,10 @@ import (
 	"strconv"
 )
 
-var UIDList map[int]bool
+//var UIDList map[int]bool
 var UIDStruct = Utils.UniqueRand{}
+
+var UIDList = make(map[int]bool)
 
 func createCustomActions() {
 	// CREATES UID GENERATION ACTION
