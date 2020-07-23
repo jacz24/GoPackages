@@ -5,7 +5,7 @@ import (
 "github.com/hewiefreeman/GopherGameServer/core"
 
 )
-func createChatRoomType() *core.Room{
+func CreateChatRoomType() *core.Room{
 	// Make a Room type and set broadcasts and callbacks
 	chatRoomType := core.NewRoomType("chat", true)
 	chatRoomType.EnableBroadcastUserEnter().EnableBroadcastUserLeave().
