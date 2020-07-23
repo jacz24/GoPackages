@@ -7,21 +7,16 @@ import (
 var UIDList map[int]bool
 
 var UIDStruct = UniqueRand{}
-
-var roomUIDList map[int]bool
-
-var roomUID = UniqueRand{}
-
 type UniqueRand struct {
-	generated map[int]bool
-	maxNumber int
+	Generated map[int]bool
+	MaxNumber int
 }
 
 func (u *UniqueRand) Int() int {
 	for {
-		i := rand.Intn(u.maxNumber)
-		if !u.generated[i] {
-			u.generated[i] = true
+		i := rand.Intn(u.MaxNumber)
+		if !u.Generated[i] {
+			u.Generated[i] = true
 			//log.Println("UID ", i)
 			return i
 		}
@@ -29,5 +24,5 @@ func (u *UniqueRand) Int() int {
 }
 
 
-func calculateTotalPossibleUIDS(uniqueRand UniqueRand) int64{
-	return int64(uniqueRand.maxNumber - len(uniqueRand.generated) + 1)}
+func CalculateTotalPossibleUIDS(uniqueRand UniqueRand) int64{
+	return int64(uniqueRand.MaxNumber - len(uniqueRand.Generated) + 1)}

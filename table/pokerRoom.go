@@ -15,7 +15,7 @@ Dereferencing them could cause data races in the Room fields that get locked by 
 // Creates A poker player by the user, TODO ADD SETUP CONFIGS LIKE MAX PLAYERS AND STUFF
 
 
-func UserCreatePokerRoom(actionData interface{}) { // Unpacks the createrpokerRoom action and returns a created room
+func userCreatePokerRoom(actionData interface{}) { // Unpacks the createrpokerRoom action and returns a created room
 	log.Println(actionData)
 
 }

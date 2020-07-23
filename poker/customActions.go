@@ -5,6 +5,7 @@ import (
 	"github.com/hewiefreeman/GopherGameServer/actions"
 	"log"
 	"strconv"
+	"github.com/jacz24/GoPackages/table"
 )
 
 func createCustomActions() {
@@ -17,22 +18,6 @@ func createCustomActions() {
 
 	// Creates User Input Actions While In Game!
 	takeSeatCustomAction() // Registers when the users sits down.
-}
-
-func takeSeatCustomAction() {
-	err := actions.New("takeSeat", actions.DataTypeString, actionUserTookSeat)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-}
-
-func createPokerRoomCustomAction(){
-	err := actions.New("userCreatePokerRoom", actions.DataTypeString, actionCreatePokerRoom)
-	if err != nil {
-		log.Println(err)
-		return
-	}
 }
 
 func guestUIDCustomAction() {
@@ -54,19 +39,7 @@ func roomCodeCustomAction() {
 		return
 	}
 }
-func actionCreatePokerRoom(actionData interface{}, client *actions.Client) {
-	log.Println("Seating a user")
-	roomUIDList = make(map[int]bool)
-	roomUID.generated = roomUIDList
-	roomUID.maxNumber = 9999999999
 
-	UserCreatePokerRoom(actionData)
-	//client.Respond()
-}
-
-func actionUserTookSeat(actionData interface{}, client *actions.Client) {
-	log.Println("Seating a user")
-}
 
 func actionValidateRoomCode(actionData interface{}, client *actions.Client) {
 	log.Println(actionData) // it does the job but nothing much else, it can do a lot more like checks and validation

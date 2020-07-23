@@ -6,6 +6,7 @@ import (
 	"log"
 	"github.com/jacz24/GoPackages/lobby"
 	"github.com/jacz24/GoPackages/chat"
+	"github.com/jacz24/GoPackages/table"
 )
 func run() {
 
@@ -37,7 +38,7 @@ func run() {
 	log.Println(mainchat)
 	log.Println(lobbyRoomType)
 	//createPokerTable() // if button click
-	table.CreatePokerRoomTypes()
+	table.CreatePokerTableType()
 
 	openSecondTestTable() // FOR DEBUGGING!
 	openTestTable() // FOR DEBUGGING!
