@@ -44,7 +44,7 @@ func run() {
 	gopher.Start(&settings)
 }
 
-func init(){
+func Init(){
 	run()
 }
 
