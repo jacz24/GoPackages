@@ -3,10 +3,10 @@ package poker
 import (
 	"github.com/hewiefreeman/GopherGameServer"
 	"github.com/hewiefreeman/GopherGameServer/core"
-	"log"
-	"github.com/jacz24/GoPackages/lobby"
 	"github.com/jacz24/GoPackages/chat"
+	"github.com/jacz24/GoPackages/lobby"
 	"github.com/jacz24/GoPackages/table"
+	"log"
 )
 func run() {
 

@@ -3,9 +3,9 @@ package poker
 import (
 	"fmt"
 	"github.com/hewiefreeman/GopherGameServer/actions"
+	"github.com/jacz24/GoPackages/table"
 	"log"
 	"strconv"
-	"github.com/jacz24/GoPackages/table"
 )
 
 func createCustomActions() {
