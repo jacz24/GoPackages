@@ -2,7 +2,7 @@ package poker
 
 import (
 	"fmt"
-	"github.com/jacz24/GoPackages/gameUtils"
+	Utils "github.com/jacz24/GoPackages/gameUtils"
 	"github.com/hewiefreeman/GopherGameServer/actions"
 	"github.com/jacz24/GoPackages/table"
 	"log"
@@ -22,9 +22,9 @@ func createCustomActions() {
 }
 
 func guestUIDCustomAction() {
-	gameUtils.UIDList = make(map[int]bool)
-	gameUtils.UIDStruct.Generated = UIDList
-	gameUtils.UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
+	Utils.UIDList = make(map[int]bool)
+	Utils.UIDStruct.Generated = Utils.UIDList
+	Utils.UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
 	log.Println("Creating Custom Actions")
 	err := actions.New("generateGuest", actions.DataTypeString, actionGenerateGuestUsername)
 	if err != nil {
@@ -50,10 +50,10 @@ func actionValidateRoomCode(actionData interface{}, client *actions.Client) {
 }
 
 func actionGenerateGuestUsername(actionData interface{}, client *actions.Client) {
-	UID := strconv.Itoa(UIDStruct.Int())
+	UID := strconv.Itoa(Utils.UIDStruct.Int())
 	guestUsername := "guest" + UID
 	log.Println("Generating Guest Username: ", guestUsername)
-	log.Println("total possible unique guest names left!", CalculateTotalPossibleUIDS(UIDStruct))
+	log.Println("total possible unique guest names left!", Utils.CalculateTotalPossibleUIDS(Utils.UIDStruct))
 	//client.Respond(UID + actionData.(string) + "!", actions.NoError())
 	client.Respond(guestUsername, actions.NoError())
 }
