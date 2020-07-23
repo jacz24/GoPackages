@@ -8,7 +8,7 @@ func CreateLobbyRoomType() *core.Room{
 	// Make a Room type and set broadcasts and callbacks
 	lobbyRoomType := core.NewRoomType("Lobby", true)// TODO FIX NEEDING TO LOGIN FIRST!
 	lobbyRoomType.EnableBroadcastUserEnter().EnableBroadcastUserLeave().
-		SetUserEnterCallback(OnEnterLobby).SetUserLeaveCallback(OnLeaveLobby)
+		SetUserEnterCallback(onEnterLobby).SetUserLeaveCallback(onLeaveLobby)
 
 	// Create lobby room on startup so people auto join in
 	lobbyroom, roomErr := core.NewRoom("mainLobby", "Lobby", false, 0, "")
