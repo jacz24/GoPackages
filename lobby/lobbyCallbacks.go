@@ -26,3 +26,4 @@ func onLeaveLobby(room *core.Room, user *core.RoomUser) {
 	// To convert RoomUser to User:
 	// u := user.User()
 }
+

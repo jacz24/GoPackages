@@ -2,11 +2,13 @@ package table
 
 import (
 	"github.com/hewiefreeman/GopherGameServer/actions"
-	"github.com/jacz24/GoPackages/gameUtils"
+	Utils "github.com/jacz24/GoPackages/gameUtils"
 	"log"
 )
 
+var roomUIDList map[int]bool
 
+var roomUID = Utils.UniqueRand{}
 func actionCreatePokerRoom(actionData interface{}, client *actions.Client) {
 	log.Println("Seating a user")
 	roomUIDList = make(map[int]bool)

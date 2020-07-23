@@ -1,13 +1,17 @@
 package poker
 
 import (
-	Utils "github.com/jacz24/GoPackages/gameUtils"
 	"github.com/hewiefreeman/GopherGameServer/actions"
-	"github.com/jacz24/GoPackages/table"
+	Utils "github.com/jacz24/GoPackages/gameUtils"
 	"github.com/jacz24/GoPackages/lobby"
+	"github.com/jacz24/GoPackages/table"
 	"log"
 	"strconv"
 )
+
+var UIDList map[int]bool
+
+var UIDStruct = Utils.UniqueRand{}
 
 func createCustomActions() {
 	// CREATES UID GENERATION ACTION

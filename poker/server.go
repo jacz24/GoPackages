@@ -49,8 +49,6 @@ func Init(){
 	run()
 }
 
-
-
 func openRoom(rName string, rtype string) *core.Room{
 	// Open a Room
 	room, roomErr := core.NewRoom(rName, rtype, false, 0, "")
