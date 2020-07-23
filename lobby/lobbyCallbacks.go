@@ -8,7 +8,7 @@ import (
 //////////////// Lobby Call Backs ////////////////
 
 
-func onEnterLobby(room *core.Room, user *core.RoomUser) {
+func OnEnterLobby(room *core.Room, user *core.RoomUser) {
 	// Example of using parameters to send a welcome message to the entering User
 	message := "Welcome To Pokkker! " + user.User().Name() + " You are currently at the Lobby"
 	messageErr := room.ServerMessage(message, core.ServerMessageNotice, []string{user.User().Name()})
@@ -17,7 +17,7 @@ func onEnterLobby(room *core.Room, user *core.RoomUser) {
 	}
 }
 
-func onLeaveLobby(room *core.Room, user *core.RoomUser) {
+func OnLeaveLobby(room *core.Room, user *core.RoomUser) {
 	message := "Good luck!"
 	messageErr := room.ServerMessage(message, core.ServerMessageNotice, []string{user.User().Name()})
 	if messageErr != nil {
