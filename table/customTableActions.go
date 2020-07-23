@@ -14,8 +14,8 @@ var roomUID = poker.UniqueRand{}
 func actionCreatePokerRoom(actionData interface{}, client *actions.Client) {
 	log.Println("Seating a user")
 	roomUIDList = make(map[int]bool)
-	roomUID.generated = roomUIDList
-	roomUID.maxNumber = 9999999999
+	roomUID.Generated = roomUIDList
+	roomUID.MaxNumber = 9999999999
 
 	userCreatePokerRoom(actionData)
 	//client.Respond()
@@ -25,7 +25,7 @@ func actionUserTookSeat(actionData interface{}, client *actions.Client) {
 	log.Println("Seating a user")
 }
 
-func takeSeatCustomAction() {
+func TakeSeatCustomAction() {
 	err := actions.New("takeSeat", actions.DataTypeString, actionUserTookSeat)
 	if err != nil {
 		log.Println(err)
@@ -33,7 +33,7 @@ func takeSeatCustomAction() {
 	}
 }
 
-func createPokerRoomCustomAction(){
+func CreatePokerRoomCustomAction(){
 	err := actions.New("userCreatePokerRoom", actions.DataTypeString, actionCreatePokerRoom)
 	if err != nil {
 		log.Println(err)

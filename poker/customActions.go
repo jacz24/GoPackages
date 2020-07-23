@@ -14,16 +14,16 @@ func createCustomActions() {
 	roomCodeCustomAction()
 
 	// Creates User Input Actions While in Lobby!
-	createPokerRoomCustomAction()
+	table.CreatePokerRoomCustomAction()
 
 	// Creates User Input Actions While In Game!
-	takeSeatCustomAction() // Registers when the users sits down.
+	table.TakeSeatCustomAction() // Registers when the users sits down.
 }
 
 func guestUIDCustomAction() {
 	UIDList = make(map[int]bool)
-	UIDStruct.generated = UIDList
-	UIDStruct.maxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
+	UIDStruct.Generated = UIDList
+	UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
 	log.Println("Creating Custom Actions")
 	err := actions.New("generateGuest", actions.DataTypeString, actionGenerateGuestUsername)
 	if err != nil {
