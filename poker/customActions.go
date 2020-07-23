@@ -10,7 +10,6 @@ import (
 )
 
 var UIDList map[int]bool
-
 var UIDStruct = Utils.UniqueRand{}
 
 func createCustomActions() {
@@ -26,9 +25,8 @@ func createCustomActions() {
 }
 
 func guestUIDCustomAction() {
-	Utils.UIDList = make(map[int]bool)
-	Utils.UIDStruct.Generated = Utils.UIDList
-	Utils.UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
+	UIDStruct.Generated = UIDList
+	UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
 	log.Println("Creating Custom Actions")
 	err := actions.New("generateGuest", actions.DataTypeString, actionGenerateGuestUsername)
 	if err != nil {
@@ -39,10 +37,10 @@ func guestUIDCustomAction() {
 
 
 func actionGenerateGuestUsername(actionData interface{}, client *actions.Client) {
-	UID := strconv.Itoa(Utils.UIDStruct.Int())
+	UID := strconv.Itoa(UIDStruct.Int())
 	guestUsername := "guest" + UID
 	log.Println("Generating Guest Username: ", guestUsername)
-	log.Println("total possible unique guest names left!", Utils.CalculateTotalPossibleUIDS(Utils.UIDStruct))
+	log.Println("total possible unique guest names left!", Utils.CalculateTotalPossibleUIDS(UIDStruct))
 	//client.Respond(UID + actionData.(string) + "!", actions.NoError())
 	client.Respond(guestUsername, actions.NoError())
 }
