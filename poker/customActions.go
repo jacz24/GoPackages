@@ -1,10 +1,10 @@
 package poker
 
 import (
-	"fmt"
 	Utils "github.com/jacz24/GoPackages/gameUtils"
 	"github.com/hewiefreeman/GopherGameServer/actions"
 	"github.com/jacz24/GoPackages/table"
+	"github.com/jacz24/GoPackages/lobby"
 	"log"
 	"strconv"
 )
@@ -12,7 +12,7 @@ import (
 func createCustomActions() {
 	// CREATES UID GENERATION ACTION
 	guestUIDCustomAction()
-	roomCodeCustomAction()
+	lobby.RoomCodeCustomAction()
 
 	// Creates User Input Actions While in Lobby!
 	table.CreatePokerRoomCustomAction()
@@ -33,21 +33,6 @@ func guestUIDCustomAction() {
 	}
 }
 
-func roomCodeCustomAction() {
-	err := actions.New("sendRoomCode", actions.DataTypeString, actionValidateRoomCode)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-}
-
-
-func actionValidateRoomCode(actionData interface{}, client *actions.Client) {
-	log.Println(actionData) // it does the job but nothing much else, it can do a lot more like checks and validation
-	str := fmt.Sprintf("%v", actionData)
-	validateRoomCode(str)
-	client.Respond(actionData, actions.NoError()) // TODO Improve on this to make it smarter,
-}
 
 func actionGenerateGuestUsername(actionData interface{}, client *actions.Client) {
 	UID := strconv.Itoa(Utils.UIDStruct.Int())
