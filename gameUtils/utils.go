@@ -1,4 +1,4 @@
-package poker
+package gameUtils
 
 import (
 	"math/rand"
@@ -7,6 +7,11 @@ import (
 var UIDList map[int]bool
 
 var UIDStruct = UniqueRand{}
+
+var roomUIDList map[int]bool
+
+var roomUID = UniqueRand{}
+
 type UniqueRand struct {
 	Generated map[int]bool
 	MaxNumber int

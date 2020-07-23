@@ -2,6 +2,7 @@ package poker
 
 import (
 	"fmt"
+	"github.com/jacz24/GoPackages/gameUtils"
 	"github.com/hewiefreeman/GopherGameServer/actions"
 	"github.com/jacz24/GoPackages/table"
 	"log"
@@ -21,9 +22,9 @@ func createCustomActions() {
 }
 
 func guestUIDCustomAction() {
-	UIDList = make(map[int]bool)
-	UIDStruct.Generated = UIDList
-	UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
+	gameUtils.UIDList = make(map[int]bool)
+	gameUtils.UIDStruct.Generated = UIDList
+	gameUtils.UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
 	log.Println("Creating Custom Actions")
 	err := actions.New("generateGuest", actions.DataTypeString, actionGenerateGuestUsername)
 	if err != nil {
