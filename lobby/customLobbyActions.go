@@ -25,8 +25,10 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	private, PrivErr := strconv.ParseBool(s[2])
 	max, MaxErr := strconv.Atoi(s[3])
 	log.Println(PrivErr, MaxErr)
-	
-	userCreatePokerRoom(s[0], private, max, client.User().Name())
+
+	userCreatedRoom := userCreatePokerRoom(s[0], private, max, client.User().Name())
+
+	client.Respond(userCreatedRoom.Name(), actions.NoError())
 }
 func userCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
 	log.Println("Creating table ", roomName)
