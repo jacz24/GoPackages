@@ -19,7 +19,7 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 
 }
 
-func userCreateTable(){
+func CreateTableCustomAction(){
 	err := actions.New("sendTableSetup", actions.DataTypeString, actionValidateRoomCode)
 	if err != nil {
 		log.Println(err)
