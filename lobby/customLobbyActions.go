@@ -24,7 +24,14 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	s = strings.Split(str, ",")
 	private, PrivErr := strconv.ParseBool(s[2])
 	max, MaxErr := strconv.Atoi(s[3])
-	log.Println(PrivErr, MaxErr)
+	if PrivErr != nil {
+		log.Println(PrivErr)
+		return
+	}
+	if MaxErr != nil {
+		log.Println(MaxErr)
+		return
+	}
 
 	userCreatedRoom := userCreatePokerRoom(s[0], private, max, client.User().Name())
 
