@@ -18,7 +18,7 @@ func createCustomActions() {
 	// CREATES UID GENERATION ACTION
 	guestUIDCustomAction()
 	lobby.RoomCodeCustomAction()
-	//lobby.CreateTableCustomAction()
+	lobby.CreateTableCustomAction()
 
 	// Creates User Input Actions While in Lobby!
 	table.CreatePokerRoomCustomAction()

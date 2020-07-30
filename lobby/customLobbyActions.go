@@ -20,7 +20,7 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 }
 
 func CreateTableCustomAction(){
-	err := actions.New("sendTableSetup", actions.DataTypeString, actionValidateRoomCode)
+	err := actions.New("sendTableSetup", actions.DataTypeString, actionCreateTable)
 	if err != nil {
 		log.Println(err)
 		return
