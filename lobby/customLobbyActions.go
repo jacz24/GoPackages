@@ -14,6 +14,19 @@ func actionValidateRoomCode(actionData interface{}, client *actions.Client) {
 	client.Respond(actionData, actions.NoError()) // TODO Improve on this to make it smarter,
 }
 
+func actionCreateTable(actionData interface{}, client *actions.Client){
+	log.Println("creating table for user ", actionData)
+
+}
+
+func userCreateTable(){
+	err := actions.New("sendTableSetup", actions.DataTypeString, actionValidateRoomCode)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+}
+
 func RoomCodeCustomAction() {
 	err := actions.New("sendRoomCode", actions.DataTypeString, actionValidateRoomCode)
 	if err != nil {
