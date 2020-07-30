@@ -3,7 +3,9 @@ package lobby
 import (
 	"fmt"
 	"github.com/hewiefreeman/GopherGameServer/actions"
+	"github.com/hewiefreeman/GopherGameServer/core"
 	"log"
+	"strings"
 )
 
 
@@ -15,8 +17,20 @@ func actionValidateRoomCode(actionData interface{}, client *actions.Client) {
 }
 
 func actionCreateTable(actionData interface{}, client *actions.Client){
-	log.Println("creating table for user ", actionData)
-
+	str := fmt.Sprintf("%v", actionData)
+	formatted := strings.Split(str, ",")
+	log.Println("its wokring", formatted)
+	//userCreatePokerRoom()
+}
+func userCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
+	log.Println("Creating table ", roomName)
+	room ,roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
+	if roomErr != nil {
+		log.Println("Error while opening Room:", roomErr)
+		return nil
+	} else {
+		return room
+	}
 }
 
 func CreateTableCustomAction(){

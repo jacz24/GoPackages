@@ -14,11 +14,6 @@ Dereferencing them could cause data races in the Room fields that get locked by 
 
 // Creates A poker player by the user, TODO ADD SETUP CONFIGS LIKE MAX PLAYERS AND STUFF
 
-
-func userCreatePokerRoom(actionData interface{}) { // Unpacks the createrpokerRoom action and returns a created room
-	log.Println(actionData)
-
-}
 func CreatePokerTableType() *core.RoomType{ // Serialize these for being able to create multiple
 	// Make a Room type and set broadcasts and callbacks
 	pokerRoomType := core.NewRoomType("PokerTable", false)// allows the players to create room!
