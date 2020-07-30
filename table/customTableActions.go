@@ -15,7 +15,7 @@ func actionCreatePokerRoom(actionData interface{}, client *actions.Client) {
 	roomUID.Generated = roomUIDList
 	roomUID.MaxNumber = 9999999999
 
-	userCreatePokerRoom(actionData)
+	//userCreatePokerRoom(actionData) TODO INVESTIGATE THIS CODE 
 	//client.Respond()
 }
 
@@ -31,10 +31,3 @@ func TakeSeatCustomAction() {
 	}
 }
 
-func CreatePokerRoomCustomAction(){
-	err := actions.New("userCreatePokerRoom", actions.DataTypeString, actionCreatePokerRoom)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-}
