@@ -20,9 +20,6 @@ func createCustomActions() {
 	lobby.RoomCodeCustomAction()
 	lobby.CreateTableCustomAction()
 
-	// Creates User Input Actions While in Lobby!
-	table.CreatePokerRoomCustomAction()
-
 	// Creates User Input Actions While In Game!
 	table.TakeSeatCustomAction() // Registers when the users sits down.
 }

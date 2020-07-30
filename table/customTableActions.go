@@ -15,7 +15,7 @@ func actionCreatePokerRoom(actionData interface{}, client *actions.Client) {
 	roomUID.Generated = roomUIDList
 	roomUID.MaxNumber = 9999999999
 
-	//userCreatePokerRoom(actionData) TODO INVESTIGATE THIS CODE 
+	//userCreatePokerRoom(actionData) TODO INVESTIGATE THIS CODE
 	//client.Respond()
 }
 
