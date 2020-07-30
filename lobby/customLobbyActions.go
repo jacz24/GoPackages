@@ -5,6 +5,7 @@ import (
 	"github.com/hewiefreeman/GopherGameServer/actions"
 	"github.com/hewiefreeman/GopherGameServer/core"
 	"log"
+	"strconv"
 	"strings"
 )
 
@@ -17,10 +18,15 @@ func actionValidateRoomCode(actionData interface{}, client *actions.Client) {
 }
 
 func actionCreateTable(actionData interface{}, client *actions.Client){
+	s := make([]string, 4)
+
 	str := fmt.Sprintf("%v", actionData)
-	formatted := strings.Split(str, ",")
-	log.Println("its wokring", formatted)
-	//userCreatePokerRoom()
+	s = strings.Split(str, ",")
+	private, PrivErr := strconv.ParseBool(s[2])
+	max, MaxErr := strconv.Atoi(s[3])
+	log.Println(PrivErr, MaxErr)
+	
+	userCreatePokerRoom(s[0], private, max, client.User().Name())
 }
 func userCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
 	log.Println("Creating table ", roomName)
