@@ -1,4 +1,4 @@
-package poker
+package pokkkker
 
 import (
 	"fmt"

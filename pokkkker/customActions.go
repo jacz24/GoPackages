@@ -1,4 +1,4 @@
-package poker
+package pokkkker
 
 import (
 	"github.com/hewiefreeman/GopherGameServer/actions"
@@ -36,7 +36,7 @@ func guestUIDCustomAction() {
 	}
 }
 
-func userCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
+func UserCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
 	log.Println("Creating table ", roomName)
 	room ,roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
 	if roomErr != nil {

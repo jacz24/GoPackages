@@ -3,6 +3,7 @@ package lobby
 import (
 	"fmt"
 	"github.com/hewiefreeman/GopherGameServer/actions"
+	//jaczpoker "github.com/jacz24/GoPackages/pokkkker"
 	"log"
 	"strconv"
 	"strings"
@@ -33,8 +34,8 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	}
 	log.Println(private)
 	log.Println(max)
-
-	//userCreatedRoom := userCreatePokerRoom(s[0], private, max, client.User().Name())
+	//pokkkker.
+	//userCreatedRoom := jaczpoker.UserCreatePokerRoom(s[0], private, max, client.User().Name())
 
 	//client.Respond(userCreatedRoom.Name(), actions.NoError())
 }
