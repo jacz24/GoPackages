@@ -10,7 +10,7 @@ import (
 var UIDStruct = Utils.UniqueRand{}
 
 var UIDList = make(map[int]bool)
-func guestUIDCustomAction() {
+func GuestUIDCustomAction() {
 	UIDStruct.Generated = UIDList
 	UIDStruct.MaxNumber = 9999999 // 7 digit long possible unique ids TODO ADD CHANGE MAYBE
 	log.Println("Creating Custom Actions")
