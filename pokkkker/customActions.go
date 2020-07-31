@@ -3,12 +3,13 @@ package pokkkker
 import (
 	//"github.com/jacz24/GoPackages/login"
 	"github.com/jacz24/GoPackages/lobby"
+	"github.com/jacz24/GoPackages/login"
 	"github.com/jacz24/GoPackages/table"
 )
 
 func createCustomActions() {
 	// LOGIN CUSTOM ACTIONS
-	//login.GuestUIDCustomAction()
+	login.GuestUIDCustomAction()
 
 
 
