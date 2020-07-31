@@ -3,7 +3,6 @@ package lobby
 import (
 	"fmt"
 	"github.com/hewiefreeman/GopherGameServer/actions"
-	"github.com/hewiefreeman/GopherGameServer/core"
 	"log"
 	"strconv"
 	"strings"
@@ -32,20 +31,12 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 		log.Println(MaxErr)
 		return
 	}
+	log.Println(private)
+	log.Println(max)
 
-	userCreatedRoom := userCreatePokerRoom(s[0], private, max, client.User().Name())
+	//userCreatedRoom := userCreatePokerRoom(s[0], private, max, client.User().Name())
 
-	client.Respond(userCreatedRoom.Name(), actions.NoError())
-}
-func userCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
-	log.Println("Creating table ", roomName)
-	room ,roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
-	if roomErr != nil {
-		log.Println("Error while opening Room:", roomErr)
-		return nil
-	} else {
-		return room
-	}
+	//client.Respond(userCreatedRoom.Name(), actions.NoError())
 }
 
 func CreateTableCustomAction(){

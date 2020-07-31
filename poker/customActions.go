@@ -2,6 +2,7 @@ package poker
 
 import (
 	"github.com/hewiefreeman/GopherGameServer/actions"
+	"github.com/hewiefreeman/GopherGameServer/core"
 	Utils "github.com/jacz24/GoPackages/gameUtils"
 	"github.com/jacz24/GoPackages/lobby"
 	"github.com/jacz24/GoPackages/table"
@@ -35,6 +36,16 @@ func guestUIDCustomAction() {
 	}
 }
 
+func userCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
+	log.Println("Creating table ", roomName)
+	room ,roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
+	if roomErr != nil {
+		log.Println("Error while opening Room:", roomErr)
+		return nil
+	} else {
+		return room
+	}
+}
 
 func actionGenerateGuestUsername(actionData interface{}, client *actions.Client) {
 	UID := strconv.Itoa(UIDStruct.Int())
