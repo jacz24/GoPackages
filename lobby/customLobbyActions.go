@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/hewiefreeman/GopherGameServer/actions"
 	"github.com/hewiefreeman/GopherGameServer/core"
-	"github.com/jacz24/GoPackages/pokkkker"
 	"log"
 	"strconv"
 	"strings"
@@ -35,7 +34,7 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	}
 	log.Println(private)
 	log.Println(max)
-	userCreatedRoom := pokkkker.UserCreatePokerRoom(s[0], private, max, client.User().Name())
+	userCreatedRoom := UserCreatePokerRoom(s[0], private, max, client.User().Name())
 
 	client.Respond(userCreatedRoom.Name(), actions.NoError())
 }
