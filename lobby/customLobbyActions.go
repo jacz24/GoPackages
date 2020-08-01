@@ -39,15 +39,28 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	client.Respond(userCreatedRoom.Name(), actions.NoError())
 }
 
-func UserCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room{ // Unpacks the createrpokerRoom action and returns a created room
+func actionRoomNameTaken(){
+	log.Println("Telling the client the name is already taken")
+}
+
+func UserCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwner string) *core.Room { // Unpacks the createrpokerRoom action and returns a created room
 	log.Println("Creating table ", roomName)
-	room ,roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
-	if roomErr != nil {
-		log.Println("Error while opening Room:", roomErr)
+	room, err := core.GetRoom(roomName)
+	log.Println(room, err)
+	if err != nil { // Checks if roomName already exists
+		log.Println("room likely doesnt exist", err)
+		actionRoomNameTaken()
 		return nil
 	} else {
-		return room
+		room, roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
+		if roomErr != nil {
+			log.Println("Error while opening Room:", roomErr)
+			return nil
+		} else {
+			return room
+		}
 	}
+	return nil
 }
 
 func CreateTableCustomAction(){

@@ -21,5 +21,8 @@ func (u *UniqueRand) Int() int {
 }
 
 
+type RoomList struct {
+	//map[*core.Room]
+}
 func CalculateTotalPossibleUIDS(uniqueRand UniqueRand) int64{
 	return int64(uniqueRand.MaxNumber - len(uniqueRand.Generated) + 1)}
