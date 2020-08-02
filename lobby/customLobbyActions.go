@@ -35,11 +35,11 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	userCreatedRoom := UserCreatePokerRoom(s[0], private, max, client.User().Name())
 	log.Println(private)
 	log.Println(max)
-	log.Println(userCreatedRoom)
+	log.Println(userCreatedRoom, "tight testing ithgt")
 	if userCreatedRoom != nil {
 		log.Println("Room exists in action!")
 	} else {
-		client.Respond(userCreatedRoom.Name(), actions.NoError())
+		//client.Respond(userCreatedRoom.Name(), actions.NoError())
 	}
 
 }
@@ -54,9 +54,6 @@ func UserCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwne
 	log.Println(room, err)
 	if err != nil { // Checks if roomName already exists TODO FIX IT ITS NOT WORKIN!
 		log.Println("room likely doesnt exist", err)
-		actionRoomNameTaken()
-		return nil
-	} else {
 		room, roomErr := core.NewRoom(roomName, "PokerTable", isPrivate, maxUsers, userOwner)
 		if roomErr != nil {
 			log.Println("Error while opening Room:", roomErr)
@@ -64,6 +61,9 @@ func UserCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwne
 		} else {
 			return room
 		}
+	} else {
+		actionRoomNameTaken()
+
 	}
 	return nil
 }
