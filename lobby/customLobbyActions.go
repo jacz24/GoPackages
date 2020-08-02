@@ -35,11 +35,12 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 	userCreatedRoom := UserCreatePokerRoom(s[0], private, max, client.User().Name())
 	log.Println(private)
 	log.Println(max)
-	log.Println(userCreatedRoom, "tight testing ithgt")
-	if userCreatedRoom != nil {
+	log.Println(userCreatedRoom, "tight testing")
+	if userCreatedRoom == nil {
 		log.Println("Room exists in action!")
+		actionRoomNameTaken()
 	} else {
-		//client.Respond(userCreatedRoom.Name(), actions.NoError())
+		client.Respond(userCreatedRoom.Name(), actions.NoError())
 	}
 
 }
@@ -62,10 +63,8 @@ func UserCreatePokerRoom(roomName string, isPrivate bool, maxUsers int, userOwne
 			return room
 		}
 	} else {
-		actionRoomNameTaken()
-
+		return nil // THIS WORKS BUT IT COULD BE CLEANER TODO CLEAN UP
 	}
-	return nil
 }
 
 func CreateTableCustomAction(){
