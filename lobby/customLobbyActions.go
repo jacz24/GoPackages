@@ -22,8 +22,8 @@ func actionCreateTable(actionData interface{}, client *actions.Client){
 
 	str := fmt.Sprintf("%v", actionData)
 	s = strings.Split(str, ",")
-	private, PrivErr := strconv.ParseBool(s[2])
-	max, MaxErr := strconv.Atoi(s[3])
+	private, PrivErr := strconv.ParseBool(s[1])
+	max, MaxErr := strconv.Atoi(s[2])
 	if PrivErr != nil {
 		log.Println(PrivErr)
 		return
